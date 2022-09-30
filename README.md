@@ -1,7 +1,8 @@
 # V-FAM
-## Find A Member
+## Find a perfect teammate...
 
-### Official repository for V-FAM (A professional tools protocol for DevJams '22)
+## Official repository for V-FAM (A professional tools protocol for DevJams '22)
+- **Idea:** A perfect platform where you can search for a team if you're interested in a specific field, or find a teammate for your existing team who meets your requirements. Connect to community members easily on our platform by exploring their profiles or viewing their requests.
 
 ## TechStack
 - **API:** FastAPI (Modern Python Framework) <br>
