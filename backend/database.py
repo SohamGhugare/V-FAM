@@ -4,8 +4,8 @@ from models import User
 class Database:
     """ Database functions """
 
-    def __init__(self, uri):
-        self.uri = uri
+    def __init__(self):
+        self.uri = "sqlite:///backend/data/users.db"
 
     @property
     def engine(self):
@@ -14,6 +14,10 @@ class Database:
     @property
     def session(self) -> Session:
         return Session(self.engine)
+
+    def get_session(self):
+        with Session(self.engine) as session:
+            yield session
 
     # Creating a new user
     def create_user(self, user: User):
