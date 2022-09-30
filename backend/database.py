@@ -1,3 +1,4 @@
+from fastapi import HTTPException
 from sqlmodel import create_engine, Session, select
 from models import User
 
@@ -34,14 +35,25 @@ class Database:
     # Deleting an existing user
     def delete_user(self, user_id: int):
         with self.session as session:
-            user = session.exec(select(User).where(User.id == user_id))
+            user = session.exec(select(User).where(User.id == user_id)).first()
+            if not user:
+                raise HTTPException(status_code=404, detail="User Not Found")
             session.delete(user)
             session.commit()
 
     # Getting a specific user based on user id
-    def get_user(self, user_id: int):
+    def get_user_by_id(self, user_id: int):
         with self.session as session:
             user = session.exec(select(User).where(User.id == user_id))
             return user
+
+    # Getting a specific user based on username
+    def get_user_by_name(self, username: str):
+        with self.session as session:
+            user = session.exec(select(User).where(User.username == username)).first()
+            if not user:
+                raise HTTPException(status_code=404, detail="User Not Found")
+            return user
+
 
         

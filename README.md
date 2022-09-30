@@ -12,3 +12,4 @@
 ## Credits
 - **Soham Ghugare** :: Backend and project infrastructure
 - **Aradhy Dixit** :: Frontend
+- **Riddhida Pandey & Rizwaan** :: Designing | UI/UX
